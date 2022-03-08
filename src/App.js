@@ -1,11 +1,5 @@
-import "./App.css";
-
 function App() {
-  return (
-    <div className="App">
-      <header>ScoreKeeper</header>
-    </div>
-  );
+  return <h1>Scorekeeper</h1>;
 }
 
 export default App;
