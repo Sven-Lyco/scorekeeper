@@ -4,9 +4,14 @@ export default function Player({ name, score, onMinus, onPlus }) {
   return (
     <section className="Player">
       <span className="Player__name">{name}</span>
-      <button onClick={onMinus}>-</button>
+      <button className="Player__score-button" onClick={onMinus}>
+        -
+      </button>
       <span className="Player__score"> {score} </span>
-      <button onClick={onPlus}> + </button>
+      <button className="Player__score-button" onClick={onPlus}>
+        {' '}
+        +{' '}
+      </button>
     </section>
   );
 }
