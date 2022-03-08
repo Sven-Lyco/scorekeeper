@@ -9,6 +9,6 @@ const Template = args => <Input {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  labelText: 'Click me',
+  labelText: 'labelName',
   placeholder: 'e.g. Carcassonne',
 };

@@ -1,0 +1,15 @@
+.Input__container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ddd;
+}
+
+.Input__label {
+  margin: 0px 5px;
+}
+
+.Input__field {
+  border: 2px solid #ddd;
+  padding: 5px;
+  margin: 0px;
+}
