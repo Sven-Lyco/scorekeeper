@@ -6,8 +6,16 @@ import Button from '../components/Button';
 export default function Play() {
   return (
     <Wrapper>
-      <Input labelText={'Name of Game'} placeholder="e.g. Carcassonne" />
-      <Input labelText={'Player Names'} placeholder="e.g. John Doe, Jane Doe" />
+      <Input
+        formId={'game-title'}
+        labelText={'Name of Game'}
+        placeholder="e.g. Carcassonne"
+      />
+      <Input
+        formId={'player-names'}
+        labelText={'Player Names'}
+        placeholder="e.g. John Doe, Jane Doe"
+      />
       <Button children={'Create Game'} />
     </Wrapper>
   );

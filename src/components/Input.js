@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 
-export default function Input({ labelText, placeholder }) {
+export default function Input({ formId, labelText, placeholder }) {
   return (
     <Wrapper>
-      <StyledLabel>{labelText}</StyledLabel>
-      <StyledInput placeholder={placeholder}></StyledInput>
+      <StyledLabel htmlFor={formId}>{labelText}</StyledLabel>
+      <StyledInput
+        type="text"
+        id={formId}
+        placeholder={placeholder}
+      ></StyledInput>
     </Wrapper>
   );
 }
