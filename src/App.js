@@ -1,14 +1,18 @@
+import { Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Input from './components/Input';
-import Button from './components/Button';
+import Play from './pages/Play';
+import History from './pages/History';
+import Navigation from './components/Navigation';
 
 export default function App() {
   return (
     <Wrapper>
       <h1>Scorekeeper</h1>
-      <Input labelText={'Name of Game'} placeholder="e.g. Carcassonne" />
-      <Input labelText={'Player Names'} placeholder="e.g. John Doe, Jane Doe" />
-      <Button children={'Create Game'} />
+      <Routes>
+        <Route path="/" element={<Play />} />
+        <Route path="/history" element={<History />} />
+      </Routes>
+      <Navigation />
     </Wrapper>
   );
 }
