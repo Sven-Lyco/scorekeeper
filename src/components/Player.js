@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 export default function Player({ name, score, onMinus, onPlus }) {
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <button onClick={onMinus}>-</button>
+      <button onClick={() => onMinus}> - </button>
       <Score> {score} </Score>
       <button onClick={onPlus}> + </button>
     </Wrapper>

@@ -4,6 +4,8 @@ import Play from './pages/Play';
 import History from './pages/History';
 import Navigation from './components/Navigation';
 
+import Player from './components/Player';
+
 export default function App() {
   return (
     <Wrapper>
