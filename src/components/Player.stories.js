@@ -4,8 +4,8 @@ export default {
   title: 'Player',
   component: Player,
   argTypes: {
-    onDecrement: 'onDecrement',
-    onIncrement: 'onIncrement',
+    onPlus: 'onPlus',
+    onMinus: 'onMinus',
   },
 };
 
