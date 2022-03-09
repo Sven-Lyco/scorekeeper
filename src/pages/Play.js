@@ -21,7 +21,7 @@ export default function Play() {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.form`
   display: grid;
   gap: 20px;
   padding: 0 30px;
