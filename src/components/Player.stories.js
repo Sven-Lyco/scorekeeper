@@ -3,6 +3,10 @@ import Player from './Player.js';
 export default {
   title: 'Player',
   component: Player,
+  argTypes: {
+    onDecrement: 'onDecrement',
+    onIncrement: 'onIncrement',
+  },
 };
 
 const Template = args => <Player {...args} />;
