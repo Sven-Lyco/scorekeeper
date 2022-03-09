@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Play from './pages/Play';
 import History from './pages/History';
 import Navigation from './components/Navigation';
+import Player from './components/Player';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/history" element={<History />} />
       </Routes>
       <Navigation />
+      <Player />
     </Wrapper>
   );
 }

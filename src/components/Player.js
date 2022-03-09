@@ -1,12 +1,23 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function Player({ name, score, onMinus, onPlus }) {
+export default function Player({ name }) {
+  const [score, setScore] = useState(0);
+
+  function onMinus({ score }) {
+    setScore(score - 1);
+  }
+
+  function onPlus({ score }) {
+    setScore(score + 1);
+  }
+
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <button onClick={onMinus}>-</button>
-      <Score> {score} </Score>
-      <button onClick={onPlus}> + </button>
+      <button onClick={() => onMinus({ score })}> - </button>
+      <Score score={score}>{score}</Score>
+      <button onClick={() => onPlus({ score })}> + </button>
     </Wrapper>
   );
 }
@@ -26,4 +37,13 @@ const Name = styled.span`
 
 const Score = styled.span`
   margin: 0 12px;
+  color: ${({ score }) => {
+    if (score === 0) {
+      return `black`;
+    } else if (score > 0) {
+      return `hsl(${(score = score * 10)},50%,50%)`;
+    } else if (score < 0) {
+      return `hsl(0,50%,50%)`;
+    }
+  }};
 `;
