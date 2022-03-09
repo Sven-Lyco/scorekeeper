@@ -1,19 +1,20 @@
+import styled from 'styled-components';
 import Input from './components/Input';
 import Button from './components/Button';
-import Navigation from './components/Navigation';
 
-import './App.css';
-
-function App() {
+export default function App() {
   return (
-    <div className="App__container">
+    <Wrapper>
       <h1>Scorekeeper</h1>
       <Input labelText={'Name of Game'} placeholder="e.g. Carcassonne" />
       <Input labelText={'Player Names'} placeholder="e.g. John Doe, Jane Doe" />
       <Button children={'Create Game'} />
-      <Navigation />
-    </div>
+    </Wrapper>
   );
 }
 
-export default App;
+const Wrapper = styled.div`
+  display: grid;
+  gap: 20px;
+  padding: 0 30px;
+`;

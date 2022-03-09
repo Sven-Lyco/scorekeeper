@@ -1,11 +1,10 @@
-import './Navigation.css';
-import Button from './Button';
+import { NavLink } from 'react-router-dom';
 
 export default function Navigation() {
   return (
-    <div className="Navigation__container">
-      <Button children={'Play'} isDark={true} />
-      <Button children={'History'} />
-    </div>
+    <nav>
+      <NavLink to="/">Play</NavLink>
+      <NavLink to="/history">History</NavLink>
+    </nav>
   );
 }
