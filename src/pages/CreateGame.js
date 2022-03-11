@@ -4,12 +4,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import { useState } from 'react';
 
-export default function CreateGame({
-  players,
-  onAddPlayer,
-  nameOfGame,
-  onCreateGame,
-}) {
+export default function CreateGame({ onAddPlayer, onCreateGame }) {
   const [playerNames, setPlayerNames] = useState('');
   const [gameName, setGameName] = useState('');
 

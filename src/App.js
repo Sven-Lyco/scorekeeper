@@ -13,6 +13,7 @@ export default function App() {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [nameOfGame, setNameOfGame] = useState('');
+  const [history, setHistory] = useState([]);
 
   return (
     <Wrapper>
@@ -40,10 +41,11 @@ export default function App() {
               onDecreasePlayerScore={decreasePlayerScore}
               onIncreasePlayerScore={increasePlayerScore}
               onResetScores={resetScores}
+              onEndGame={endGame}
             />
           }
         />
-        <Route path="/history" element={<History />} />
+        <Route path="/history" element={<History history={history} />} />
       </Routes>
     </Wrapper>
   );
@@ -87,6 +89,13 @@ export default function App() {
 
   function resetScores() {
     setPlayers(players.map(player => ({ ...player, score: 0 })));
+  }
+
+  function endGame() {
+    setHistory([{ players, nameOfGame, id: nanoid() }, ...history]);
+    setPlayers([]);
+    setNameOfGame('');
+    navigate('./history');
   }
 }
 

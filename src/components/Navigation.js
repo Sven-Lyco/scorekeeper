@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export default function Navigation({ nameOfGame, players }) {
+export default function Navigation() {
   return (
     <Nav>
       <LinkStyled to="/">Home</LinkStyled>
