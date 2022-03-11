@@ -111,7 +111,9 @@ export default function App() {
 }
 
 const Wrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   gap: 0px;
-  padding: 0 30px;
+  padding: 0px;
 `;

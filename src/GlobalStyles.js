@@ -7,7 +7,7 @@ export default createGlobalStyle`
   
   body {
     margin: 0;
-    font-family: sans-serif;
+    font-family: 'Patrick Hand', cursive;
     font-size: 112.5%;
     line-height: 1.5;
   }
@@ -17,6 +17,7 @@ export default createGlobalStyle`
     color: whitesmoke;
     text-align: center;
     margin: 0;
+    width: 100%;
   }
   h2 {
     margin:0;

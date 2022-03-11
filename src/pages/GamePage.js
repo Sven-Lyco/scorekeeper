@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import Player from '../components/Player';
 import Button from '../components/Button';
 
@@ -10,7 +11,8 @@ export default function GamePage({
   onEndGame,
 }) {
   return (
-    <>
+    <Wrapper>
+      {' '}
       <header>
         <h2>{nameOfGame}</h2>
       </header>
@@ -25,6 +27,10 @@ export default function GamePage({
       ))}
       <Button onClick={onResetScores}>Reset Scores</Button>
       <Button onClick={onEndGame}>End Game</Button>
-    </>
+    </Wrapper>
   );
 }
+
+const Wrapper = styled.div`
+  margin: 5px;
+`;

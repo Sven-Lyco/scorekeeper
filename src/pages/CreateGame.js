@@ -27,8 +27,8 @@ export default function CreateGame({
   }
 
   return (
-    <>
-      <Wrapper onSubmit={handleSubmitGame} autoComplete="off">
+    <Wrapper>
+      <FormWrapper onSubmit={handleSubmitGame} autoComplete="off">
         {!nameOfGame && (
           <Input
             value={gameName}
@@ -41,8 +41,8 @@ export default function CreateGame({
           />
         )}
         {!nameOfGame && <Button>Create Game</Button>}
-      </Wrapper>
-      <Wrapper onSubmit={handleSubmitPlayer} autoComplete="off">
+      </FormWrapper>
+      <FormWrapper onSubmit={handleSubmitPlayer} autoComplete="off">
         {nameOfGame && (
           <Input
             value={playerNames}
@@ -55,18 +55,22 @@ export default function CreateGame({
           />
         )}
         {nameOfGame && <Button>Add Player</Button>}
-      </Wrapper>
+      </FormWrapper>
+      <h2>{nameOfGame}</h2>
       {players.map(({ name, score, id }) => (
         <PlayerName key={id} name={name} score={score}>
           {name}
         </PlayerName>
       ))}
       <Button onClick={onStartGame}>Start Game</Button>
-    </>
+    </Wrapper>
   );
 }
 
-const Wrapper = styled.form`
+const Wrapper = styled.div`
+  margin: 5px;
+`;
+const FormWrapper = styled.form`
   display: grid;
   padding: 0 0px;
 `;

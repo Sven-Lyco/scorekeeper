@@ -29,5 +29,6 @@ const Player = styled.div`
 
 const GameTitle = styled.span`
   text-transform: uppercase;
-  font-weight: lighter;
+  text-decoration: underline;
+  font-weight: bolder;
 `;

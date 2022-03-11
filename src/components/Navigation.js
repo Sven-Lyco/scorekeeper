@@ -18,6 +18,7 @@ const LinkStyled = styled(NavLink)`
   text-decoration: none;
   color: inherit;
   width: 100%;
+  transition: 0.4s;
 
   &.active {
     background: #444;
@@ -31,4 +32,7 @@ const Nav = styled.nav`
   background: #ddd;
   color: inherit;
   height: 48px;
+  border: 3px solid #444;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 `;

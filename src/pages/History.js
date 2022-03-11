@@ -5,16 +5,19 @@ import Button from '../components/Button';
 
 export default function History({ history, onStartNewGame }) {
   return (
-    <Wrapper>
+    <HistoryWrapper>
       <h2>Previous Games</h2>
       {history.map(({ nameOfGame, players, id }) => (
         <HistoryEntry key={id} nameOfGame={nameOfGame} players={players} />
       ))}
       <Button onClick={onStartNewGame}>Play new Game</Button>
-    </Wrapper>
+    </HistoryWrapper>
   );
 }
 
-const Wrapper = styled.div`
-  text-decoration: underline;
+const HistoryWrapper = styled.div`
+  margin: 5px;
+  h2 {
+    text-decoration: underline;
+  }
 `;

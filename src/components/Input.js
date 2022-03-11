@@ -9,7 +9,7 @@ export default function Input({
   required,
 }) {
   return (
-    <Wrapper>
+    <InputWrapper>
       <StyledLabel htmlFor={formId}>{labelText}</StyledLabel>
       <StyledInput
         value={value}
@@ -19,23 +19,26 @@ export default function Input({
         placeholder={placeholder}
         required={required}
       ></StyledInput>
-    </Wrapper>
+    </InputWrapper>
   );
 }
 
-const Wrapper = styled.div`
+const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #ddd;
+  border: 3px solid black;
+  border-radius: 5px;
+  margin: 15px 5px;
 `;
 
 const StyledLabel = styled.label`
+  font-size: inherit;
   margin: 5px 5px;
 `;
 
 const StyledInput = styled.input`
-  font-size: large;
-  border: 2px solid #ddd;
-  padding: 10px;
+  font-size: smaller;
+  padding: 10px 0px;
   margin: 0px;
 `;
