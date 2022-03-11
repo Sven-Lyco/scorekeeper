@@ -29,6 +29,7 @@ export default function App() {
               nameOfGame={nameOfGame}
               onCreateGame={createGame}
               onAddPlayer={addPlayer}
+              onStartGame={startGame}
             />
           }
         />
@@ -57,7 +58,6 @@ export default function App() {
   function createGame(gameName) {
     const newGame = gameName;
     setNameOfGame([...nameOfGame, newGame]);
-    navigate('./gamepage');
   }
 
   function addPlayer(playerNames) {
@@ -67,6 +67,10 @@ export default function App() {
       id: nanoid(),
     }));
     setPlayers([...players, ...newPlayers]);
+  }
+
+  function startGame() {
+    navigate('./gamepage');
   }
 
   function increasePlayerScore(index) {
