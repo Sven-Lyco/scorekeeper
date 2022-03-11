@@ -36,7 +36,7 @@ export default function CreateGame({
             type="text"
             formId={'game-name'}
             labelText={'Name of Game'}
-            placeholder="Siedler von Catan"
+            placeholder="Jumanji"
             required
           />
         )}
