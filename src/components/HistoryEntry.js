@@ -20,6 +20,7 @@ const Wrapper = styled.section`
   border: 1px solid grey;
   border-radius: 4px;
   padding: 8px;
+  margin: 10px;
 `;
 
 const Player = styled.div`
