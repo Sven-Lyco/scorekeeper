@@ -3,9 +3,14 @@ import styled from 'styled-components';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
-export default function Play() {
+export default function Play({ onCreateGame }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    onCreateGame();
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onSubmit={handleSubmit}>
       <Input
         formId={'game-title'}
         labelText={'Name of Game'}
@@ -16,7 +21,7 @@ export default function Play() {
         labelText={'Player Names'}
         placeholder="e.g. John Doe, Jane Doe"
       />
-      <Button children={'Create Game'} />
+      <Button children={'Create Game'} onClick={onCreateGame} />
     </Wrapper>
   );
 }

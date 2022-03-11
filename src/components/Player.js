@@ -1,12 +1,23 @@
 import styled from 'styled-components';
 
-export default function Player({ name, score, onDecrement, onIncrement }) {
+export default function Player({
+  name,
+  score,
+  onDecreasePlayerScore,
+  onIncreasePlayerScore,
+}) {
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <button onClick={onDecrement}> - </button>
+      <button aria-label="Decrease Score" onClick={onDecreasePlayerScore}>
+        {' '}
+        -{' '}
+      </button>
       <Score score={score}>{score}</Score>
-      <button onClick={onIncrement}> + </button>
+      <button aria-label="Increase Score" onClick={onIncreasePlayerScore}>
+        {' '}
+        +{' '}
+      </button>
     </Wrapper>
   );
 }

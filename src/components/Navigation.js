@@ -5,6 +5,7 @@ export default function Navigation() {
   return (
     <Nav>
       <LinkStyled to="/">Play</LinkStyled>
+      <LinkStyled to="/gamepage">Game</LinkStyled>
       <LinkStyled to="/history">History</LinkStyled>
     </Nav>
   );

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Play from './pages/Play';
 import History from './pages/History';
 import Navigation from './components/Navigation';
-import Player from './components/Player';
+import GamePage from './pages/GamePage';
 
 export default function App() {
   const [players, setPlayers] = useState([
@@ -13,28 +13,35 @@ export default function App() {
     { name: 'Karin', score: 0, id: nanoid() },
     { name: 'Jörg', score: 0, id: nanoid() },
   ]);
+  const [nameOfGame, setNameOfGame] = useState('Siedler');
+
+  function createGame({ nameOfGame }) {
+    setNameOfGame(nameOfGame);
+  }
 
   return (
     <Wrapper>
       <h1>Scorekeeper</h1>
       <Routes>
-        <Route path="/" element={<Play />} />
+        <Route path="/" element={<Play onCreateGame={createGame} />} />
         <Route path="/history" element={<History />} />
+        <Route
+          path="/gamepage"
+          element={
+            <GamePage
+              nameOfGame={nameOfGame}
+              players={players}
+              onDecreasePlayerScore={decreasePlayerScore}
+              onIncreasePlayerScore={increasePlayerScore}
+            />
+          }
+        />
       </Routes>
       <Navigation />
-      {players.map(({ name, score, id }, index) => (
-        <Player
-          name={name}
-          score={score}
-          onDecrement={() => decrementPlayerScore(index)}
-          onIncrement={() => incrementPlayerScore(index)}
-          key={id}
-        />
-      ))}
     </Wrapper>
   );
 
-  function incrementPlayerScore(index) {
+  function increasePlayerScore(index) {
     const player = players[index];
     setPlayers([
       ...players.slice(0, index),
@@ -43,7 +50,7 @@ export default function App() {
     ]);
   }
 
-  function decrementPlayerScore(index) {
+  function decreasePlayerScore(index) {
     const player = players[index];
     setPlayers([
       ...players.slice(0, index),
