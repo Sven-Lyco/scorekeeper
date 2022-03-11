@@ -46,7 +46,10 @@ export default function App() {
             />
           }
         />
-        <Route path="/history" element={<History history={history} />} />
+        <Route
+          path="/history"
+          element={<History history={history} onStartNewGame={startNewGame} />}
+        />
       </Routes>
     </Wrapper>
   );
@@ -100,6 +103,10 @@ export default function App() {
     setPlayers([]);
     setNameOfGame('');
     navigate('./history');
+  }
+
+  function startNewGame() {
+    navigate('./createpage');
   }
 }
 

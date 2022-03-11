@@ -43,16 +43,18 @@ export default function CreateGame({
         {!nameOfGame && <Button>Create Game</Button>}
       </Wrapper>
       <Wrapper onSubmit={handleSubmitPlayer} autoComplete="off">
-        <Input
-          value={playerNames}
-          onChange={event => setPlayerNames(event.target.value)}
-          type="text"
-          formId={'player-names'}
-          labelText={'Player Names'}
-          placeholder="e.g. John Doe, Jane Doe"
-          required
-        />
-        <Button>Add Player</Button>
+        {nameOfGame && (
+          <Input
+            value={playerNames}
+            onChange={event => setPlayerNames(event.target.value)}
+            type="text"
+            formId={'player-names'}
+            labelText={'Player Names'}
+            placeholder="e.g. John Doe, Jane Doe"
+            required
+          />
+        )}
+        {nameOfGame && <Button>Add Player</Button>}
       </Wrapper>
       {players.map(({ name, score, id }) => (
         <PlayerName key={id} name={name} score={score}>
