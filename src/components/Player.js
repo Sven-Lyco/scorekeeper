@@ -1,23 +1,12 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 
-export default function Player({ name }) {
-  const [score, setScore] = useState(0);
-
-  function onMinus({ score }) {
-    setScore(score - 1);
-  }
-
-  function onPlus({ score }) {
-    setScore(score + 1);
-  }
-
+export default function Player({ name, score, onDecrement, onIncrement }) {
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <button onClick={() => onMinus({ score })}> - </button>
+      <button onClick={onDecrement}> - </button>
       <Score score={score}>{score}</Score>
-      <button onClick={() => onPlus({ score })}> + </button>
+      <button onClick={onIncrement}> + </button>
     </Wrapper>
   );
 }
@@ -28,7 +17,7 @@ const Wrapper = styled.section`
   background-color: #ddd;
   border-radius: 5px;
   padding: 5px;
-  margin: 10px 0px;
+  margin: 0px 0px;
 `;
 
 const Name = styled.span`
@@ -40,8 +29,10 @@ const Score = styled.span`
   color: ${({ score }) => {
     if (score === 0) {
       return `black`;
-    } else if (score > 0) {
+    } else if (score > 0 && score < 12) {
       return `hsl(${(score = score * 10)},50%,50%)`;
+    } else if (score >= 12) {
+      return `hsl(120,50%,50%)`;
     } else if (score < 0) {
       return `hsl(0,50%,50%)`;
     }
