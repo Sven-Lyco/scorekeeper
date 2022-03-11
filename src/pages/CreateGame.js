@@ -6,9 +6,9 @@ import { useState } from 'react';
 
 export default function CreateGame({
   players,
+  onAddPlayer,
   nameOfGame,
   onCreateGame,
-  onAddPlayer,
 }) {
   const [playerNames, setPlayerNames] = useState('');
   const [gameName, setGameName] = useState('');
@@ -44,12 +44,6 @@ export default function CreateGame({
           required
         />
         <Button>Create Game</Button>
-        <h2>{nameOfGame}</h2>
-        {players.map(({ name, id }) => (
-          <span key={id} name={name}>
-            {name}
-          </span>
-        ))}
       </Wrapper>
     </>
   );

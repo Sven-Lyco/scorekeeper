@@ -1,15 +1,16 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
 
+import Home from './pages/Home';
 import CreateGame from './pages/CreateGame';
 import History from './pages/History';
 import Navigation from './components/Navigation';
 import GamePage from './pages/GamePage';
-import { navigate } from '@storybook/addon-links';
 
 export default function App() {
+  const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [nameOfGame, setNameOfGame] = useState('');
 
@@ -18,6 +19,7 @@ export default function App() {
       <h1>Scorekeeper</h1>
       <Navigation nameOfGame={nameOfGame} players={players} />
       <Routes>
+        <Route path="/" element={<Home onSkipHome={skipHome} />} />
         <Route
           path="/createpage"
           element={
@@ -37,6 +39,7 @@ export default function App() {
               players={players}
               onDecreasePlayerScore={decreasePlayerScore}
               onIncreasePlayerScore={increasePlayerScore}
+              onResetScores={resetScores}
             />
           }
         />
@@ -45,9 +48,14 @@ export default function App() {
     </Wrapper>
   );
 
+  function skipHome() {
+    navigate('./createpage');
+  }
+
   function createGame(gameName) {
     const newGame = gameName;
     setNameOfGame([...nameOfGame, newGame]);
+    navigate('./gamepage');
   }
 
   function addPlayer(playerNames) {
@@ -76,10 +84,14 @@ export default function App() {
       ...players.slice(index + 1),
     ]);
   }
+
+  function resetScores() {
+    setPlayers(players.map(player => ({ ...player, score: 0 })));
+  }
 }
 
 const Wrapper = styled.div`
   display: grid;
-  gap: 20px;
+  gap: 0px;
   padding: 0 30px;
 `;

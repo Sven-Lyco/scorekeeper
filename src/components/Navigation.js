@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export default function Navigation({ nameOfGame, players }) {
   return (
     <Nav>
+      <LinkStyled to="/">Home</LinkStyled>
       <LinkStyled to="/createpage">Create Game</LinkStyled>
       <LinkStyled to="/gamepage">Play Game</LinkStyled>
       <LinkStyled to="/history">History</LinkStyled>

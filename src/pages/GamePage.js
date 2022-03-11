@@ -6,6 +6,7 @@ export default function GamePage({
   nameOfGame,
   onDecreasePlayerScore,
   onIncreasePlayerScore,
+  onResetScores,
 }) {
   return (
     <>
@@ -21,6 +22,7 @@ export default function GamePage({
           onDecreasePlayerScore={() => onDecreasePlayerScore(index)}
         />
       ))}
+      <Button onClick={onResetScores}>Reset Scores</Button>
       <Button>End Game</Button>
     </>
   );
