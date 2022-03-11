@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export default function Navigation() {
+export default function Navigation({ nameOfGame, players }) {
   return (
     <Nav>
-      <LinkStyled to="/">Play</LinkStyled>
-      <LinkStyled to="/gamepage">Game</LinkStyled>
+      <LinkStyled to="/createpage">Create Game</LinkStyled>
+      <LinkStyled to="/gamepage">Play Game</LinkStyled>
       <LinkStyled to="/history">History</LinkStyled>
     </Nav>
   );

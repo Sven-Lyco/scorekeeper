@@ -2,28 +2,32 @@ import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import styled from 'styled-components';
-import Play from './pages/Play';
+
+import CreateGame from './pages/CreateGame';
 import History from './pages/History';
 import Navigation from './components/Navigation';
 import GamePage from './pages/GamePage';
 
 export default function App() {
-  const [players, setPlayers] = useState([
-    { name: 'Sven', score: 0, id: nanoid() },
-    { name: 'Karin', score: 0, id: nanoid() },
-    { name: 'Jörg', score: 0, id: nanoid() },
-  ]);
-  const [nameOfGame, setNameOfGame] = useState('Siedler');
-
-  function createGame({ nameOfGame }) {
-    setNameOfGame(nameOfGame);
-  }
+  const [players, setPlayers] = useState([]);
+  const [nameOfGame, setNameOfGame] = useState('');
 
   return (
     <Wrapper>
       <h1>Scorekeeper</h1>
+      <Navigation nameOfGame={nameOfGame} players={players} />
       <Routes>
-        <Route path="/" element={<Play onCreateGame={createGame} />} />
+        <Route
+          path="/createpage"
+          element={
+            <CreateGame
+              players={players}
+              nameOfGame={nameOfGame}
+              onCreateGame={createGame}
+              onAddPlayer={addPlayer}
+            />
+          }
+        />
         <Route path="/history" element={<History />} />
         <Route
           path="/gamepage"
@@ -37,9 +41,22 @@ export default function App() {
           }
         />
       </Routes>
-      <Navigation />
     </Wrapper>
   );
+
+  function createGame(gameName) {
+    const newGame = gameName;
+    setNameOfGame([...nameOfGame, newGame]);
+  }
+
+  function addPlayer(playerNames) {
+    const newPlayers = playerNames.map(name => ({
+      name: name,
+      score: 0,
+      id: nanoid(),
+    }));
+    setPlayers([...players, ...newPlayers]);
+  }
 
   function increasePlayerScore(index) {
     const player = players[index];

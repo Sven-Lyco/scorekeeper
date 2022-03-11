@@ -1,13 +1,23 @@
 import styled from 'styled-components';
 
-export default function Input({ formId, labelText, placeholder }) {
+export default function Input({
+  formId,
+  labelText,
+  placeholder,
+  onChange,
+  value,
+  required,
+}) {
   return (
     <Wrapper>
       <StyledLabel htmlFor={formId}>{labelText}</StyledLabel>
       <StyledInput
+        value={value}
+        onChange={onChange}
         type="text"
         id={formId}
         placeholder={placeholder}
+        required={required}
       ></StyledInput>
     </Wrapper>
   );
