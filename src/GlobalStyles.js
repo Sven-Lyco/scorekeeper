@@ -18,4 +18,8 @@ export default createGlobalStyle`
     text-align: center;
     margin: 0;
   }
+  h2 {
+    margin:0;
+    padding:0;
+  }
 `;

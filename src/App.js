@@ -7,6 +7,7 @@ import CreateGame from './pages/CreateGame';
 import History from './pages/History';
 import Navigation from './components/Navigation';
 import GamePage from './pages/GamePage';
+import { navigate } from '@storybook/addon-links';
 
 export default function App() {
   const [players, setPlayers] = useState([]);
@@ -28,7 +29,6 @@ export default function App() {
             />
           }
         />
-        <Route path="/history" element={<History />} />
         <Route
           path="/gamepage"
           element={
@@ -40,6 +40,7 @@ export default function App() {
             />
           }
         />
+        <Route path="/history" element={<History />} />
       </Routes>
     </Wrapper>
   );
