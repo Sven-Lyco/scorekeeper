@@ -57,8 +57,8 @@ export default function CreateGame({
         {nameOfGame && <Button>Add Player</Button>}
       </FormWrapper>
       <h2>{nameOfGame}</h2>
-      {players.map(({ name, score, id }) => (
-        <PlayerName key={id} name={name} score={score}>
+      {players.map(({ name, id }) => (
+        <PlayerName key={id} name={name}>
           {name}
         </PlayerName>
       ))}
