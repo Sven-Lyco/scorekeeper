@@ -73,7 +73,11 @@ export default function App() {
   }
 
   function startGame() {
-    navigate('./gamepage');
+    if (nameOfGame === '' && players.length === 0) {
+      alert('Please enter a game name and add players ');
+    } else {
+      navigate('./gamepage');
+    }
   }
 
   function increasePlayerScore(index) {
@@ -99,12 +103,15 @@ export default function App() {
   }
 
   function endGame() {
-    setHistory([{ players, nameOfGame, id: nanoid() }, ...history]);
-    setPlayers([]);
-    setNameOfGame('');
-    navigate('./history');
+    if (nameOfGame === '' && players.length === 0) {
+      alert('Please create a game first ');
+    } else {
+      setHistory([{ players, nameOfGame, id: nanoid() }, ...history]);
+      setPlayers([]);
+      setNameOfGame('');
+      navigate('./history');
+    }
   }
-
   function startNewGame() {
     navigate('./createpage');
   }
