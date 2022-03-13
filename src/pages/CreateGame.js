@@ -14,18 +14,6 @@ export default function CreateGame({
   const [playerNames, setPlayerNames] = useState('');
   const [gameName, setGameName] = useState('');
 
-  function handleSubmitGame(event) {
-    event.preventDefault();
-    onCreateGame(gameName);
-    setGameName('');
-  }
-
-  function handleSubmitPlayer(event) {
-    event.preventDefault();
-    onAddPlayer(playerNames.split(',').map(name => name.trim()));
-    setPlayerNames('');
-  }
-
   return (
     <Wrapper>
       <FormWrapper
@@ -54,13 +42,13 @@ export default function CreateGame({
       >
         {nameOfGame && (
           <Input
-            value={playerNames}
-            onChange={event => setPlayerNames(event.target.value)}
-            type="text"
             id={'player-names'}
             name={'player-names'}
             labelText="Player Names"
             placeholder="e.g. John Doe, Jane Doe"
+            type="text"
+            value={playerNames}
+            onChange={event => setPlayerNames(event.target.value)}
             required
           />
         )}
@@ -75,6 +63,18 @@ export default function CreateGame({
       <Button onClick={onStartGame}>Start Game</Button>
     </Wrapper>
   );
+
+  function handleSubmitGame(event) {
+    event.preventDefault();
+    onCreateGame(gameName);
+    setGameName('');
+  }
+
+  function handleSubmitPlayer(event) {
+    event.preventDefault();
+    onAddPlayer(playerNames.split(',').map(name => name.trim()));
+    setPlayerNames('');
+  }
 }
 
 const Wrapper = styled.div`
