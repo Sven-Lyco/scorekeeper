@@ -35,12 +35,13 @@ export default function CreateGame({
       >
         {!nameOfGame && (
           <Input
-            value={gameName}
-            onChange={event => setGameName(event.target.value)}
-            type="text"
+            id={'game-name'}
             name={'game-name'}
             labelText="Name of Game"
             placeholder="Jumanji"
+            type="text"
+            value={gameName}
+            onChange={event => setGameName(event.target.value)}
             required
           />
         )}
@@ -56,6 +57,7 @@ export default function CreateGame({
             value={playerNames}
             onChange={event => setPlayerNames(event.target.value)}
             type="text"
+            id={'player-names'}
             name={'player-names'}
             labelText="Player Names"
             placeholder="e.g. John Doe, Jane Doe"
