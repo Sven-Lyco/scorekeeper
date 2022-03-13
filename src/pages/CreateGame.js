@@ -15,7 +15,7 @@ export default function CreateGame({
   const [gameName, setGameName] = useState('');
 
   return (
-    <Wrapper>
+    <StyledMain>
       <FormWrapper
         onSubmit={handleSubmitGame}
         aria-labelledby="formHeader"
@@ -61,7 +61,7 @@ export default function CreateGame({
         </PlayerName>
       ))}
       <Button onClick={onStartGame}>Start Game</Button>
-    </Wrapper>
+    </StyledMain>
   );
 
   function handleSubmitGame(event) {
@@ -77,7 +77,7 @@ export default function CreateGame({
   }
 }
 
-const Wrapper = styled.div`
+const StyledMain = styled.div`
   margin: 5px;
 `;
 const FormWrapper = styled.form`

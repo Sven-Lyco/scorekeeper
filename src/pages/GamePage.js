@@ -11,7 +11,7 @@ export default function GamePage({
   onEndGame,
 }) {
   return (
-    <Wrapper>
+    <StyledMain>
       {' '}
       <header>
         <h2>{nameOfGame}</h2>
@@ -27,10 +27,10 @@ export default function GamePage({
       ))}
       <Button onClick={onResetScores}>Reset Scores</Button>
       <Button onClick={onEndGame}>End Game</Button>
-    </Wrapper>
+    </StyledMain>
   );
 }
 
-const Wrapper = styled.div`
+const StyledMain = styled.div`
   margin: 5px;
 `;
