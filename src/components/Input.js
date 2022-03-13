@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export default function Input({
-  formId,
+  name,
   labelText,
   placeholder,
   onChange,
@@ -10,15 +10,16 @@ export default function Input({
 }) {
   return (
     <InputWrapper>
-      <StyledLabel htmlFor={formId}>{labelText}</StyledLabel>
+      <StyledLabel htmlFor={name}>{labelText}</StyledLabel>
       <StyledInput
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        type="text"
         value={value}
         onChange={onChange}
-        type="text"
-        id={formId}
-        placeholder={placeholder}
         required={required}
-      ></StyledInput>
+      />
     </InputWrapper>
   );
 }

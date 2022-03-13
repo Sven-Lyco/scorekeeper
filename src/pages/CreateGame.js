@@ -28,28 +28,36 @@ export default function CreateGame({
 
   return (
     <Wrapper>
-      <FormWrapper onSubmit={handleSubmitGame} autoComplete="off">
+      <FormWrapper
+        onSubmit={handleSubmitGame}
+        aria-labelledby="formHeader"
+        autoComplete="off"
+      >
         {!nameOfGame && (
           <Input
             value={gameName}
             onChange={event => setGameName(event.target.value)}
             type="text"
-            formId={'game-name'}
-            labelText={'Name of Game'}
+            name={'game-name'}
+            labelText="Name of Game"
             placeholder="Jumanji"
             required
           />
         )}
         {!nameOfGame && <Button>Create Game</Button>}
       </FormWrapper>
-      <FormWrapper onSubmit={handleSubmitPlayer} autoComplete="off">
+      <FormWrapper
+        onSubmit={handleSubmitPlayer}
+        aria-labelledby="formHeader"
+        autoComplete="off"
+      >
         {nameOfGame && (
           <Input
             value={playerNames}
             onChange={event => setPlayerNames(event.target.value)}
             type="text"
-            formId={'player-names'}
-            labelText={'Player Names'}
+            name={'player-names'}
+            labelText="Player Names"
             placeholder="e.g. John Doe, Jane Doe"
             required
           />
