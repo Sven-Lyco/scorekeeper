@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export default function Button({ children, onClick, isDark }) {
+export default function Button({ type, children, onClick, isDark }) {
   return (
-    <ButtonStyled isDark={isDark} onClick={onClick}>
+    <ButtonStyled type={type} isDark={isDark} onClick={onClick}>
       {children}
     </ButtonStyled>
   );
