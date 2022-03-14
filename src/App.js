@@ -9,11 +9,13 @@ import History from './pages/History';
 import Navigation from './components/Navigation';
 import GamePage from './pages/GamePage';
 
+import useLocalStorage from './hooks/useLocalStorage';
+
 export default function App() {
   const navigate = useNavigate();
   const [players, setPlayers] = useState([]);
   const [nameOfGame, setNameOfGame] = useState('');
-  const [history, setHistory] = useState([]);
+  const [history, setHistory] = useLocalStorage('history', []);
 
   return (
     <Wrapper>
