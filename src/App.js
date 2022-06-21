@@ -75,8 +75,11 @@ export default function App() {
   }
 
   function startGame() {
-    if (nameOfGame === '' && players.length === 0) {
-      alert('Please enter a game name and add players ');
+    if (nameOfGame === '') {
+      alert('Please enter a game name!');
+    }
+    if (players.length === 0) {
+      alert('Please add one or more player!');
     } else {
       navigate('./gamepage');
     }
@@ -114,6 +117,7 @@ export default function App() {
       navigate('./history');
     }
   }
+
   function startNewGame() {
     navigate('./createpage');
   }
